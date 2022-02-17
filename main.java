@@ -11,25 +11,32 @@ class main {
         System.out.println("Please enter -2 if you dont want to add more nodes");
         int temp = scan.nextInt();
         
-        SLL linkedlist = new SLL();
+        DLL linkedlist = new DLL();
 
 
         while (temp != -2){
-            linkedlist.Insert(temp);
+            linkedlist.InsertEnd(temp);
             temp = scan.nextInt();
         }
-        System.out.print("The SLL is :  ");
-        linkedlist.PrintLL();
+        linkedlist.InsertBefore(linkedlist.head.getNext(), 5);
+        linkedlist.InsertAfter(linkedlist.head.getNext(), 9);
         System.out.println();
+        System.out.println("The double linked list is :");
 
-        linkedlist.Delete();
-
-        System.out.print("The SLL is :  ");
-        linkedlist.PrintLL();
+        linkedlist.PrintHeadTail();
         System.out.println();
+        linkedlist.PrintTailHead();
+        System.out.println();
+        System.out.println();
+        System.out.println(linkedlist.head.getNext().getNext().getData());
+        linkedlist.Delete(linkedlist.head.getNext().getNext());
+        
+        System.out.println();
+        System.out.println("The double linked list is :");
 
-        linkedlist.Search(2);
-    
+        linkedlist.PrintHeadTail();
+        System.out.println();
+        linkedlist.PrintTailHead();
         scan.close();
         System.out.println("End");
     }
